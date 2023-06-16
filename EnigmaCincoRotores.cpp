@@ -70,12 +70,17 @@ int main(void)
 	char texto[100000];
 	char textoEncriptado[100000];
 	
+	cout<<"Explicación: Originalmente se tenían 3 rotores, pero en esta simulacion se pueden usar 5 rotores"<<endl;
 	cout<<"EMULADOR MAQUINA ENIGMA V. Najum!!!!!!!!!!!!!!!!!!!!!!!\n\n";
 	cout<<"********************************************************"<<endl;
-	cout<<"PUEDE SELECIONAR 3 DE 5 ROTORES"<<endl<<endl;
-	cout<<"__________     ___________       ___________"<<endl;
-	cout<<"ubicacion2     ubicacion 2       ubicacion 1 " <<endl<<endl;
+	cout<<"PUEDE SELECIONAR ROTORES"<<endl<<endl;
+	cout<<"__________     __________     __________     ___________       ___________"<<endl;
+	cout<<"ubicacion5     ubicacion4     ubicacion3     ubicacion 2       ubicacion 1 " <<endl<<endl;
 	
+	cout<<"Explicación: Se tienen 5 piezas circulares, cada una con 26 contactos eléctricos, uno para cada letra del alfabeto"<<endl;
+	cout<<"Cada una tenía un cableado diferente, y se conectaban entre sí de forma que la corriente pasaba de una a otra de forma distinta"<<endl;
+	cout<<"Estos '5 rotores' simulan esas piezas circulares, cada uno con un cableado diferente"<<endl<<endl;
+
 	cout<<"selecione rotores del 1 al 5:\n" <<endl;
 	cout<<"selecione el rotor para la ubicacion 1: ";
 	cin>>rotor0;
@@ -167,6 +172,9 @@ int main(void)
 	cout<<m;
 	cout<<endl<<endl;
 	
+	cout<<"Explicación: Los rototes tienen una posicion inicial, que se puede cambiar, para que la maquina encripte de forma distinta"<<endl;
+	cout<<"En esta simulacion se puede cambiar la posicion inicial de cada rotor"<<endl<<endl;
+
 	cout<<"Puede selecionar posiciones de A - Z.. ingrese en MAYUSCULAS: \n";
 	cout<<"ingrese la posicion inicial 1: ";
 	cin>>letraDigitada[0];
@@ -196,13 +204,13 @@ int main(void)
 	retornarNumeros(strlen(letraDigitada),letraDigitada);
 
 
-	cout<<"\nMastrando pos iniciales antes de rotacion: \n";
+	cout<<"\nMostrando pos iniciales antes de rotacion: \n";
 	mostrarCaracteres(strlen(letraDigitada),letraDigitada);
 	retornarNumeros(strlen(letraDigitada),letraDigitada);
 	
 	cout<<"i,j,k,l,m:"<<i<<j<<k<<l<<m<<endl;
 
-	cout<<"\nMOStrando pos iniciales DESPUES de rotacion: \n";
+	cout<<"\nMostrando pos iniciales DESPUES de rotacion: \n";
 
 
 	//ROTAR HASTA QUE LA POSICION INICIAL SEA IGUAL A LA LETRA DIGITADA

@@ -7,6 +7,20 @@
 
 using namespace std;
 
+
+void obtenerPrimeraLinea(const string& nombreArchivo, char primeraLinea[MAX]) {
+    ifstream archivo(nombreArchivo);  // Abrir el archivo en modo lectura
+
+    if (archivo.is_open()) {
+        archivo.getline(primeraLinea, MAX);
+        archivo.close();
+    } else {
+        // Si ocurre algún error al abrir el archivo, se asigna una cadena vacía al arreglo
+        strcpy(primeraLinea, "");
+    }
+}
+
+
 void espacioAxxxx(char texto[MAX])
 {
 	char baul[MAX];
@@ -1512,18 +1526,18 @@ void encriptarEnigma(char textoEncriptado[] , char texto[], int contraNumero, ch
 		// B: convertir caracteres no aceptados a aceptados
 		
 			espacioAxxxx(texto); // transformar espacio a xxxx
-	//		cout<<texto;
-	//		cout<<endl;
-	//		cout<<endl;
+			// cout<<texto;
+			// cout<<endl;
+			// cout<<endl;
 			
-	//		system("pause");
+			// system("pause");
 		
 		// C. transformar numeros a letras
 			no_aceptadoAletras(texto);	
 			
-	//		cout<<texto;
-	//		cout<<endl;
-	//		system("pause");
+			// cout<<texto;
+			// cout<<endl;
+			// system("pause");
 				
 		
 	//strcat(textoConcatenado,texto);	
@@ -1573,8 +1587,12 @@ int main(void)
 	
 	strcpy(contrasenha2,"QWERT");
 	
+	cout<<"\nBienvenido al programa de encriptacion Enigma"<<endl;
+	cout<<"Seleccione una opcion: "<<endl;
+	cout<<"-------------------------------------------"<<endl;
+
 	cout<<"1. Ingresar texto a encriptar"<<endl;
-	cout<<"2. desencriptar mensaje"<<endl;
+	cout<<"2. Desencriptar un mensaje en .txt"<<endl;
 	cout<<"-------> ";
 	cin>>caso;
 	fflush(stdin);
@@ -1589,28 +1607,23 @@ int main(void)
 			break;
 			
 		case 2:
-			ifstream leer_fich;
-			
-			leer_fich.open("enigma.txt"); //ifstream ---> lectura de datos)
-	
-			
-			leer_fich>>texto; //asumelo cono un cin>> 
-							   //es decir ingresan que mostrar� los datos del .txt
-			
-			leer_fich.close();
-				
+			// Llamar a la funcion que obtiene la primera linea del archivo
+			obtenerPrimeraLinea("TextoEncriptado.txt",texto);
+			cout<<"texto encriptado --> "<<texto<<endl;
+			system("pause");
+
 			break;
 			
 	}
 	
 	encriptarEnigma(textoEncriptado, texto, contrasenha1, contrasenha2);
 	
-	cout<<"texto encriptado/desencriptado \n----> "<<textoEncriptado;
+	cout<<"texto desencriptado \n----> "<<textoEncriptado;
 	cout<<endl;
 	
 	ofstream archivo;
 				
-	archivo.open("enigma.txt");
+	archivo.open("TextoDesencriptado.txt");
 	
 	archivo<<textoEncriptado;
 	
